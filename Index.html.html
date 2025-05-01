@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Eligibility Check</title>
+    <style>
+      fieldset {
+        width: 15%;
+        display: flex;
+      }
+      button {
+        padding: 8px 10px 8px 10px;
+        background-color: darkcyan;
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend><h3>Job Eligibility Check</h3></legend>
+      <form>
+        <label>
+          <input type="checkbox" name="subject" value="html" />
+          HTML
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="subject" value="css" />
+          CSS
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="subject" value="javascript" />
+          JAVA SCRIPT
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="subject" value="react" />
+          REACT
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="subject" value="angular" />
+          ANGULAR
+        </label>
+        <br /><br />
+        <button type="button" onclick="checkEligibility()">
+          Check Eligibility
+        </button>
+      </form>
+    </fieldset>
+    <p id="eligibility-message"></p>
+
+    <script>
+      function checkEligibility() {
+        const checkboxes = document.querySelectorAll("input");
+        let checkedCount = 0;
+
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            checkedCount++;
+          }
+        });
+
+        const message = document.getElementById("eligibility-message");
+
+        if (checkedCount === 2) {
+          message.innerText = "You are eligible for 1 job!";
+          message.style.color = "green";
+        } else if (checkedCount === 3) {
+          message.innerText = "You are eligible for 2 jobs!";
+          message.style.color = "green";
+        } else if (checkedCount === 4) {
+          message.innerText = "You are eligible for 3 jobs!";
+          message.style.color = "green";
+        } else if (checkedCount === 5) {
+          message.innerText = "You are eligible for all jobs!";
+          message.style.color = "green";
+        } else {
+          message.innerText = "You are not eligible for any jobs.";
+          message.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
